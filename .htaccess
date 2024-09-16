@@ -1,0 +1,59 @@
+# Enable URL Rewriting
+RewriteEngine On
+
+# Force HTTPS for Better Security
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect www to non-www (canonical domain)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
+
+# Enable Browser Caching to Improve Load Time
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/html "access plus 1 week"
+    ExpiresByType application/pdf "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-shockwave-flash "access plus 1 month"
+</IfModule>
+
+# Gzip Compression to Reduce File Sizes
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Prevent Directory Listing
+Options -Indexes
+
+# Block Access to .htaccess and Other Sensitive Files
+<FilesMatch "^\.ht">
+    Require all denied
+</FilesMatch>
+
+# Custom 404 Error Page
+ErrorDocument 404 /404.html
+
+# Redirect Old Pages to New Pages (Example Redirects)
+Redirect 301 /old-page.html https://yourwebsite.com/new-page.html
+
+# Disable Image Hotlinking (Protect Your Images)
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https://yourwebsite.com/.*$ [NC]
+RewriteRule \.(jpg|jpeg|png|gif)$ - [F,NC,L]
+
+# Cache Control for Static Files
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|css|js)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
+# Set Character Encoding to UTF-8
+AddDefaultCharset UTF-8
