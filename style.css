@@ -1457,3 +1457,26 @@ text-align: center;
         width: 100%;
     }
 }
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    background-color: #29be60;
+    border-radius: 50px;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.whatsapp-button img {
+    width: 30px;
+    height: 30px;
+    /*     margin-right: 5px; */
+}
