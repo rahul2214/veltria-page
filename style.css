@@ -17,6 +17,7 @@ body {
 .header {
     padding: 20px 150px;
     border-bottom: 0px solid #e5e5e5;
+      position: sticky;
 }
 
 .navbar {
