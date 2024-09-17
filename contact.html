@@ -73,27 +73,29 @@
             <p>Contact us for web development, app development, training, and digital marketing inquiries.</p>
         </div>
 
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value="b593c500-d046-4b76-8d9b-93f9c2cbc063">
-            <div class="form-row">
-                <div class="input-group">
-                    <label for="name">Your First Name</label>
-                    <input type="text" id="name" placeholder="Enter your first name" required/>
-                </div>
+       <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="b593c500-d046-4b76-8d9b-93f9c2cbc063">
+    
+    <div class="form-row">
+        <div class="input-group">
+            <label for="name">Your First Name</label>
+            <input type="text" id="name" name="first_name" placeholder="Enter your first name" required/>
+        </div>
 
-                <div class="input-group">
-                    <label for="email">Your Email Address*</label>
-                    <input type="email" id="email" placeholder="Enter your email address" required />
-                </div>
-            </div>
+        <div class="input-group">
+            <label for="email">Your Email Address*</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+        </div>
+    </div>
 
-            <div class="input-group">
-                <label for="message">Your Message*</label>
-                <textarea id="message" placeholder="Type your message here" required></textarea>
-            </div>
+    <div class="input-group">
+        <label for="message">Your Message*</label>
+        <textarea id="message" name="message" placeholder="Type your message here" required></textarea>
+    </div>
 
-            <button type="submit" class="submit-button">Submit Your Inquiry</button>
-        </form>
+    <button type="submit" class="submit-button">Submit Your Inquiry</button>
+</form>
+
     </div>
 </section>
 
