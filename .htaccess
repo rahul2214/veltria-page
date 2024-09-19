@@ -41,11 +41,11 @@ Options -Indexes
 ErrorDocument 404 /404.html
 
 # Redirect Old Pages to New Pages (Example Redirects)
-Redirect 301 /old-page.html https://yourwebsite.com/new-page.html
+Redirect 301 /old-page.html https://veltria.in/new-page.html
 
 # Disable Image Hotlinking (Protect Your Images)
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^https://yourwebsite.com/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^https://veltria.in/.*$ [NC]
 RewriteRule \.(jpg|jpeg|png|gif)$ - [F,NC,L]
 
 # Cache Control for Static Files
